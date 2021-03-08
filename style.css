@@ -5,54 +5,18 @@ Leonardo Matone
 
 **/
 
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
 
-/*   aestetics:   */ 
-
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: right;
-}
-
-.center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.justify {
-  text-align: justify;
-}
-
-/*    grid:     */
-
-.myDiv {
-  border: 5px outset red;
-  background-color: lightblue;
-  text-align: center;
-}
-
-.grid-container {
+.cellContainer {
   display: grid;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: #000;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  grid-gap: 50px;
 }
 
-.grid-row {
-  position: relative;
-  width: 100%;
+.cell {
+  background-color: #cccccc;
+  height: 100px;
+  width: 100px;
 }
-
-/*
-
-.grid-container > div {
-  background-color: rgba(255,255,255);
-  text-align: center;
-  padding: 50px;
-  font-size: 30px;
-}
-
-*/
