@@ -8,15 +8,18 @@ Leonardo Matone
 
 .cellContainer {
   display: grid;
-  background-color: #000;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  grid-auto-flow: row;
-  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
 }
 
-.cell {
-  background-color: #cccccc;
+.cellContainer > div{
+  background-color: #251d1d;
   height: 100px;
   width: 100px;
+}
+
+.cellContainer > div::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
 }
