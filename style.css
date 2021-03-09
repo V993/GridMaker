@@ -23,3 +23,10 @@ Leonardo Matone
   padding-bottom: 100%;
   display: block;
 }
+
+/*flex shit I guess */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
