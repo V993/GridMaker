@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Flexbox Grid Alignment</title>
+</head>
+
+<body>
+    <div class="container">
+        <button onclick="add_rows()">Add Rows</button>
+        <button onclick="add_columns()">Add Columns</button>
+        <br>
+        <button onclick="remove_rows() ">Remove Rows</button>
+        <button onclick="remove_columns()">Remove Columns</button>
+        <br>
+        <button onclick="fill_cell() ">Fill Cell</button>
+        <button onclick="fill_all_uncolored()">Fill all uncolored</button>
+        <button onclick="fill_all_cells() ">Fill all </button>
+        <br>
+        <button onclick="clear() ">Clear </button>
+        <select onchange="select_colors()" id="selectedID">
+            <option value="Select colors">Select</option>
+            <option value="Red">Red</option>
+            <option value="Greeb">Green</option>
+            <option value="Blue">Blue</option>
+            <option value="Yellow">Yellow</option>
+        </select>
+
+    </div>
+    <script src="App.js"></script>
+</body>
+
+</html>
