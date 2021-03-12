@@ -39,6 +39,7 @@ function remove_columns() {
 function select_colors() {
   selected = document.getElementById("selectedID").value;
   document.getElementById("cell").style.backgroundColor = selected;
+  alert("Color selected")
   //when a user selects a colors, notify
 }
 // click on a single cell, changing its color to the currently selected color
