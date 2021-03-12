@@ -27,12 +27,37 @@ function remove_rows() {
   }
 }
 
+
 function add_columns() {
-  alert("Column added");
+  //setting up the pre-fixed properties for grid 
+  const grid_ = document.querySelector("#grid");
+  let table_row = grid_.getElementsByTagName("tr")[0];
+
+  //if there are no existing columns
+  if (table_row.length == 0) {
+    let new_cols = document.createElement("tc");
+    let cols_data = document.createElement("td");
+    new_cols.appendChild(cols_data);
+    table_row.appendChild(new_cols);
+  }
+  else {
+    let columns = grid_.getElementsByTagName("td")
+    // document.createElement('tc');
+    table_row.appendChild(columns[0].cloneNode(true));
+
+  }
 }
 
 function remove_columns() {
-  alert("Column removed");
+  //parent 
+  let columns = document.getElementsByTagName("tr");
+
+  for (let i = 0; i < rows.length; i++) {
+    let lastCol = columns[rows.length - 1];
+    rows[i].removeChild(lastCol)
+  }
+
+
 }
 
 // select a color from a dropdown menu of colors
