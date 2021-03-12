@@ -16,6 +16,8 @@ function add_rows() {
     newRow.appendChild(rowData);
     grid.children[0].appendChild(newRow);
   }
+  rows++;
+  console.log("number of rows: ", rows);
 }
 
 function remove_rows() {
@@ -25,8 +27,9 @@ function remove_rows() {
     let lastRow = rows[rows.length - 1];
     lastRow.parentElement.removeChild(lastRow);
   }
+  rows--;
+  console.log("number of rows: ", rows);
 }
-
 
 function add_columns() {
   //setting up the pre-fixed properties for grid 
@@ -50,30 +53,41 @@ function add_columns() {
     columns = allRows.length;
     console.log(columns);
 
-
+    let columns = grid.getElementsByTagName("td")
+    // document.createElement('tc');
+    table_row.append(columns[0].cloneNode(true));
   }
+  columns++;
+  console.log("number of columns: ", columns);
 }
 
 function remove_columns() {
   //parent 
   let allRows = document.getElementsByTagName("tr");
-
   for (let i = 0; i < allRows.length; i++) {
     let lastCol = allRows[i].lastElementChild;
     allRows[i].removeChild(lastCol);
-
 
   }
 
   columns = allRows.length;
   console.log(columns);
 
+  }
+  // columns = allRows;
+  columns--;
+  console.log("number of columns: ", columns);
+
 }
 
 // select a color from a dropdown menu of colors
 function select_colors() {
+  colors_selected = document.getElementById("selectedID").value;
+  // document.getElementById("cell").style.backgroundColor = selected;
+  console.log(colors_selected);
   //when a user selects a colors, notify
 }
+
 // click on a single cell, changing its color to the currently selected color
 function fill_cell() {
   alert("cell colour changed");
@@ -89,5 +103,11 @@ function fill_all_cells() {
 
 // clear all cells/restore all cells to their original/initial color
 function clear() {
+  const grid = document.querySelector("#grid")
+
+  for(let i = 0; i < document.getElementsByTagName("tr").length; i++ )
+  {
+    grid[i].style.backgroundcolor = "white";
+  }
   alert("cells cleared");
 }
