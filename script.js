@@ -32,7 +32,7 @@ function remove_rows() {
 }
 
 function add_columns() {
-  //setting up the pre-fixed properties for grid 
+  //setting up the pre-fixed properties for grid
   // const grid_ = document.querySelector("#grid");
   let table_row = grid.getElementsByTagName("tr")[0];
 
@@ -42,8 +42,7 @@ function add_columns() {
     let cols_data = document.createElement("td");
     new_cols.append(cols_data);
     table_row.append(new_cols);
-  }
-  else {
+  } else {
     let allRows = document.getElementsByTagName("tr");
 
     for (let i = 0; i < allRows.length; i++) {
@@ -53,7 +52,7 @@ function add_columns() {
     columns = allRows.length;
     console.log(columns);
 
-    let columns = grid.getElementsByTagName("td")
+    let columns = grid.getElementsByTagName("td");
     // document.createElement('tc');
     table_row.append(columns[0].cloneNode(true));
   }
@@ -62,22 +61,19 @@ function add_columns() {
 }
 
 function remove_columns() {
-  //parent 
+  //parent
   let allRows = document.getElementsByTagName("tr");
   for (let i = 0; i < allRows.length; i++) {
     let lastCol = allRows[i].lastElementChild;
     allRows[i].removeChild(lastCol);
-
   }
 
   columns = allRows.length;
   console.log(columns);
 
-  }
   // columns = allRows;
   columns--;
   console.log("number of columns: ", columns);
-
 }
 
 // select a color from a dropdown menu of colors
@@ -103,10 +99,9 @@ function fill_all_cells() {
 
 // clear all cells/restore all cells to their original/initial color
 function clear() {
-  const grid = document.querySelector("#grid")
+  const grid = document.querySelector("#grid");
 
-  for(let i = 0; i < document.getElementsByTagName("tr").length; i++ )
-  {
+  for (let i = 0; i < document.getElementsByTagName("tr").length; i++) {
     grid[i].style.backgroundcolor = "white";
   }
   alert("cells cleared");
