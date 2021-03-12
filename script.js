@@ -57,7 +57,7 @@ function add_columns() {
     // document.createElement('tc');
     table_row.append(columns[0].cloneNode(true));
   }
-  columns++;
+  // columns++;
   console.log("number of columns: ", columns);
 }
 
@@ -70,44 +70,42 @@ function remove_columns() {
 
   }
 
-  columns = allRows.length;
-  console.log(columns);
-
-  }
   // columns = allRows;
   columns--;
   console.log("number of columns: ", columns);
-
 }
+  
 
 // select a color from a dropdown menu of colors
 function select_colors() {
   colors_selected = document.getElementById("selectedID").value;
-  // document.getElementById("cell").style.backgroundColor = selected;
   console.log(colors_selected);
-  //when a user selects a colors, notify
 }
 
 // click on a single cell, changing its color to the currently selected color
 function fill_cell() {
-  alert("cell colour changed");
+  console.log("setting cell color to: ", colors_selected);
+  document.documentElement.style.setProperty("--background-color", colors_selected);
 }
 // fill all uncolored cells with the currently selected color
 function fill_all_uncolored() {
-  alert("filled uncolored cells with colours");
+  
 }
 // fill all cells with the currently selected color
 function fill_all_cells() {
-  alert("filled all cells");
+  document.documentElement.style.setProperty("--background-color", colors_selected);
 }
 
 // clear all cells/restore all cells to their original/initial color
-function clear() {
-  const grid = document.querySelector("#grid")
+function clearAll() {
+  console.log("Clearing and setting all cells to white");
+  document.documentElement.style.setProperty("--background-color", "White");
 
-  for(let i = 0; i < document.getElementsByTagName("tr").length; i++ )
-  {
-    grid[i].style.backgroundcolor = "white";
-  }
-  alert("cells cleared");
+  // const grid = document.querySelector("#grid")
+
+  // for(let i = 0; i < document.getElementsByTagName("tr").length; i++ )
+  // {
+  //   grid[i].style.backgroundcolor = "white";
+  // }
+  // alert("cells cleared");
 }

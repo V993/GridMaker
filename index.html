@@ -13,10 +13,10 @@
       <button onclick="add_columns()">Add Column</button>
       <button onclick="remove_rows() ">Remove Row</button>
       <button onclick="remove_columns()">Remove Column</button>
-      <button onclick="fill_cell() ">Fill Cell</button>
+      
       <button onclick="fill_all_uncolored()">Fill all uncolored</button>
       <button onclick="fill_all_cells() ">Fill all</button>
-      <button onclick="clear() ">Clear</button>
+      <button onclick="clearAll()">Clear</button>
       <select onchange="select_colors()" id="selectedID">
         <option value="Select colors">Select</option>
         <option value="Red">Red</option>
@@ -26,7 +26,9 @@
       </select>
 
       <table id="grid">
-        <tbody></tbody>
+        <div id = "tr">
+          <div id = "tr" onclick = "fill_cell()"></div>
+        </div>
       </table>
     </div>
     <script src="script.js"></script>

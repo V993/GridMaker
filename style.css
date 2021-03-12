@@ -27,6 +27,7 @@
   --rows: 0;
   --columns: 0;
   --gridHeight: 120px;
+  --background-color: #fff;
 }
 
 .buttons {
@@ -66,4 +67,5 @@ td {
 td {
   height: 50px;
   width: 50px;
-  background-color: #fff;
+  background-color: var(--background-color);
+}
