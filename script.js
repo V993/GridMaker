@@ -41,9 +41,15 @@ function add_columns() {
     table_row.append(new_cols);
   }
   else {
-    let columns = grid.getElementsByTagName("td")
-    // document.createElement('tc');
-    table_row.append(columns[0].cloneNode(true));
+    let allRows = document.getElementsByTagName("tr");
+
+    for (let i = 0; i < allRows.length; i++) {
+      let lastCol = allRows[i].children;
+      allRows[i].appendChild(lastCol[0].cloneNode(true));
+    }
+    columns = allRows.length;
+    console.log(columns);
+
 
   }
 }
@@ -56,9 +62,11 @@ function remove_columns() {
     let lastCol = allRows[i].lastElementChild;
     allRows[i].removeChild(lastCol);
 
+
   }
 
-  columns = allRows;
+  columns = allRows.length;
+  console.log(columns);
 
 }
 
