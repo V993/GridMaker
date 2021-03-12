@@ -68,16 +68,3 @@ td {
   width: 50px;
   background-color: #fff;
 }
-
-tc,
-t_col_data  {
-  border: 1px solid #000;
-  border-style: solid;
-}
-
-
-t_col_data {
-  height: 50px;
-  width: 50px;
-  background-color: #fff;
-}
