@@ -21,13 +21,15 @@
       <select onchange="select_colors()" id="selectedID">
         <option value="Select colors">Select</option>
         <option value="Red">Red</option>
-        <option value="Greeb">Green</option>
+        <option value="Green">Green</option>
         <option value="Blue">Blue</option>
         <option value="Yellow">Yellow</option>
       </select>
 
       <table id="grid">
-        <tbody></tbody>
+        <tbody>
+          <td onclick="selected()" id="cell"></td>
+        </tbody>
       </table>
     </div>
     <script src="script.js"></script>

@@ -37,6 +37,8 @@ function remove_columns() {
 
 // select a color from a dropdown menu of colors
 function select_colors() {
+  selected = document.getElementById("selectedID").value;
+  document.getElementById("cell").style.backgroundColor = selected;
   //when a user selects a colors, notify
 }
 // click on a single cell, changing its color to the currently selected color
@@ -54,5 +56,11 @@ function fill_all_cells() {
 
 // clear all cells/restore all cells to their original/initial color
 function clear() {
+  const grid = document.querySelector("#grid")
+
+  for(let i = 0; i < document.getElementsByTagName("tr").length; i++ )
+  {
+    grid[i].style.backgroundcolor = "white";
+  }
   alert("cells cleared");
 }
