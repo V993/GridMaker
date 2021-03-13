@@ -73,7 +73,6 @@ function remove_columns() {
   // columns = allRows;
   console.log("number of columns: ", columns);
 }
-  
 
 // select a color from a dropdown menu of colors
 function select_colors() {
@@ -84,28 +83,26 @@ function select_colors() {
 // click on a single cell, changing its color to the currently selected color
 function fill_cell() {
   console.log("setting cell color to: ", colors_selected);
-  document.documentElement.style.setProperty("--background-color", colors_selected);
+  document.documentElement.style.setProperty(
+    "--background-color",
+    colors_selected
+  );
 }
 // fill all uncolored cells with the currently selected color
-function fill_all_uncolored() {
-  
-}
+function fill_all_uncolored() {}
 // fill all cells with the currently selected color
+
 function fill_all_cells() {
-  document.documentElement.style.setProperty("--background-color", colors_selected);
+  [...document.querySelectorAll("td")].forEach((box, i) => {
+    let selected = document.getElementById("selectedID").value;
+    if (selected != "Select colors") box.style.backgroundColor = selected;
+  });
 }
 
 // clear all cells/restore all cells to their original/initial color
 
 function clearAll() {
-  console.log("Clearing and setting all cells to white");
-  document.documentElement.style.setProperty("--background-color", "White");
-
-  // const grid = document.querySelector("#grid")
-
-  // for(let i = 0; i < document.getElementsByTagName("tr").length; i++ )
-  // {
-  //   grid[i].style.backgroundcolor = "white";
-  // }
-  // alert("cells cleared");
+  [...document.querySelectorAll("td")].forEach((box, i) => {
+    box.style.backgroundColor = "#fff";
+  });
 }
