@@ -72,9 +72,17 @@ function fill_cell() {
   );
 }
 // fill all uncolored cells with the currently selected color
-function fill_all_uncolored() {}
-// fill all cells with the currently selected color
+function fill_all_uncolored() {
+  // there's at least one row
+  if (document.querySelector("tr") != null) {
+    [...document.querySelectorAll("td")].forEach((box, i) => {
+      let selected = document.getElementById("selectedID").value;
+      if ( (box.style.backgroundColor != 'green' || box.style.backgroundColor != 'blue' || box.style.backgroundColor != 'red' || box.style.backgroundColor != 'yellow') && (box.style.backgroundColor === 'white' || box.style.backgroundColor === '')) box.style.backgroundColor = selected;
+    });
+  }
+}
 
+// fill all cells with the currently selected color
 function fill_all_cells() {
   [...document.querySelectorAll("td")].forEach((box, i) => {
     let selected = document.getElementById("selectedID").value;
