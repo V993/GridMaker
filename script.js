@@ -5,13 +5,13 @@ let colors_selected;
 //adds rows to our grids
 function add_rows() {
   const grid = document.querySelector("#grid");
-  // there are rows that can be removed
+  // there are existing rows
   if (document.getElementsByTagName("tr").length > 0) {
-    let clone = document.querySelector('tr').cloneNode(true);
-    let cells = [...clone.querySelectorAll('td')];
+    let clone = document.querySelector("tr").cloneNode(true);
+    let cells = [...clone.querySelectorAll("td")];
     cells.forEach((cell) => {
-      cell.removeAttribute('style');
-      cell.style.backgroundColor = 'white';
+      cell.removeAttribute("style");
+      cell.style.backgroundColor = "white";
     });
     grid.children[0].appendChild(clone);
   } else {
@@ -21,26 +21,30 @@ function add_rows() {
     newRow.appendChild(rowData);
     grid.children[0].appendChild(newRow);
   }
-  rows++;
-  console.log("number of rows: ", rows);
 }
 
 function remove_rows() {
-  // there are rows that can be removed
+  // there are existing rows
   if (document.getElementsByTagName("tr").length > 0) {
     let rows = document.getElementsByTagName("tr");
     let lastRow = rows[rows.length - 1];
     lastRow.parentElement.removeChild(lastRow);
   }
-  rows--;
-  console.log("number of rows: ", rows);
 }
 
 function add_columns() {
-  [...document.querySelectorAll('#grid tr')].forEach((row, i) => {
-    const cell = document.createElement("td");
-    row.appendChild(cell);
-});
+  if (document.querySelector("tr") != null) {
+    [...document.querySelectorAll("#grid tr")].forEach((row, i) => {
+      const cell = document.createElement("td");
+      row.appendChild(cell);
+    });
+  } else {
+    // there are no existing cells
+    let newRow = document.createElement("tr");
+    let rowData = document.createElement("td");
+    newRow.appendChild(rowData);
+    grid.children[0].appendChild(newRow);
+  }
 }
 
 function remove_columns() {
