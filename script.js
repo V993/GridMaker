@@ -7,8 +7,12 @@ function add_rows() {
   const grid = document.querySelector("#grid");
   // there are rows that can be removed
   if (document.getElementsByTagName("tr").length > 0) {
-    let rows = document.getElementsByTagName("tr");
-    let clone = rows[0].cloneNode(true);
+    let clone = document.querySelector('tr').cloneNode(true);
+    let cells = [...clone.querySelectorAll('td')];
+    cells.forEach((cell) => {
+      cell.removeAttribute('style');
+      cell.style.backgroundColor = 'white';
+    });
     grid.children[0].appendChild(clone);
   } else {
     // there are no existing rows
@@ -33,32 +37,10 @@ function remove_rows() {
 }
 
 function add_columns() {
-  //setting up the pre-fixed properties for grid
-  // const grid_ = document.querySelector("#grid");
-  let table_row = grid.getElementsByTagName("tr")[0];
-
-  //if there are no existing columns
-  if (table_row.length == 0) {
-    let new_cols = document.createElement("tr");
-    let cols_data = document.createElement("td");
-    new_cols.append(cols_data);
-    table_row.append(new_cols);
-  } else {
-    let allRows = document.getElementsByTagName("tr");
-
-    for (let i = 0; i < allRows.length; i++) {
-      let lastCol = allRows[i].children;
-      allRows[i].appendChild(lastCol[0].cloneNode(true));
-    }
-    columns = allRows.length;
-    console.log(columns);
-
-    let columns = grid.getElementsByTagName("td");
-    // document.createElement('tc');
-    table_row.append(columns[0].cloneNode(true));
-  }
-  // columns++;
-  console.log("number of columns: ", columns);
+  [...document.querySelectorAll('#grid tr')].forEach((row, i) => {
+    const cell = document.createElement("td");
+    row.appendChild(cell);
+});
 }
 
 function remove_columns() {
