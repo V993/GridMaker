@@ -8,7 +8,8 @@ function add_rows() {
   // there are rows that can be removed
   if (document.getElementsByTagName("tr").length > 0) {
     let rows = document.getElementsByTagName("tr");
-    grid.appendChild(rows[0].cloneNode(true));
+    let clone = rows[0].cloneNode(true);
+    grid.children[0].appendChild(clone);
   } else {
     // there are no existing rows
     let newRow = document.createElement("tr");
