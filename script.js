@@ -61,17 +61,12 @@ function add_columns() {
 }
 
 function remove_columns() {
-  //parent
-  let allRows = document.getElementsByTagName("tr");
-  for (let i = 0; i < allRows.length; i++) {
-    let lastCol = allRows[i].lastElementChild;
-    allRows[i].removeChild(lastCol);
+  // there are columns that can be removed
+  if (document.getElementsByTagName("tr").length > 0) {
+    let columns = document.getElementsByTagName("tr");
+    let lastCol = columns[columns.length - 1];
+    lastCol.parentElement.removeChild(lastCol);
   }
-
-  columns = allRows.length;
-
-  // columns = allRows;
-  console.log("number of columns: ", columns);
 }
 
 // select a color from a dropdown menu of colors
