@@ -12,17 +12,19 @@ function add_rows() {
     cells.forEach((cell) => {
       cell.removeAttribute('style');
       cell.style.backgroundColor = 'white';
+      cell.addEventListener("click", fill_cell(cell));
     });
     grid.children[0].appendChild(clone);
   } else {
     // there are no existing rows
     let newRow = document.createElement("tr");
     let rowData = document.createElement("td");
-    newRow.appendChild(rowData);
+    newRow.appendChild(rowData);  
     grid.children[0].appendChild(newRow);
   }
   rows++;
   console.log("number of rows: ", rows);
+  // [...document.querySelectorAll("td")]
 }
 
 function remove_rows() {
@@ -39,8 +41,10 @@ function remove_rows() {
 function add_columns() {
   [...document.querySelectorAll('#grid tr')].forEach((row, i) => {
     const cell = document.createElement("td");
+    cell.addEventListener("click", fill_cell(cell));
     row.appendChild(cell);
-});
+  });
+  // [...document.querySelectorAll("td")].addEventListener("click", fill_cell(cell));
 }
 
 function remove_columns() {
@@ -64,13 +68,12 @@ function select_colors() {
 }
 
 // click on a single cell, changing its color to the currently selected color
-function fill_cell() {
+function fill_cell(cell) {
   console.log("setting cell color to: ", colors_selected);
-  document.documentElement.style.setProperty(
-    "--background-color",
-    colors_selected
-  );
+  // cell.setProperty( "--background-color", colors_selected);
+  cell.style.backgroundColor = colors_selected;
 }
+
 // fill all uncolored cells with the currently selected color
 function fill_all_uncolored() {}
 // fill all cells with the currently selected color
